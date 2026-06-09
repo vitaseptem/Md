@@ -119,15 +119,19 @@ void split_frontmatter(const std::string& raw, std::string& frontmatter, std::st
 // VaultEngine
 // =====================================================================
 
-VaultEngine::VaultEngine(const std::string& vault_root)
-    : vault_root_(vault_root) {}
+VaultEngine::VaultEngine(const std::string& vault_root, bool flat)
+    : vault_root_(vault_root), flat_(flat) {}
 
 std::string VaultEngine::notes_dir() const {
-    return (fs::path(vault_root_) / "notes").string();
+    // Flat: as notas vivem na propria raiz; senao, em vault_root/notes.
+    return flat_ ? vault_root_ : (fs::path(vault_root_) / "notes").string();
 }
 
 std::string VaultEngine::index_path() const {
-    return (fs::path(vault_root_) / "index" / "index.json").string();
+    // Flat: indice oculto em .valen/ p/ nao poluir o diretorio de notas.
+    return flat_
+        ? (fs::path(vault_root_) / ".valen" / "index.json").string()
+        : (fs::path(vault_root_) / "index" / "index.json").string();
 }
 
 Note VaultEngine::parse_note_file(const std::string& filepath) const {

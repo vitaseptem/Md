@@ -37,7 +37,9 @@ void print_usage() {
         "  create \"nome\"        Cria nova nota com frontmatter padrao\n"
         "  help                 Mostra esta ajuda\n\n"
         "Opcoes:\n"
-        "  --vault <caminho>    Raiz do vault (padrao: diretorio atual)\n";
+        "  --vault <caminho>    Raiz do vault (padrao: diretorio atual)\n"
+        "  --flat               Trata --vault como a propria pasta de notas\n"
+        "                       (sem subpasta notes/; indice em .valen/index.json)\n";
 }
 
 // Tenta achar a raiz do vault: usa o caminho dado, senao sobe a partir do
@@ -59,6 +61,16 @@ std::string detect_vault_root(const std::string& override_path) {
 int main(int argc, char** argv) {
     std::vector<std::string> args(argv + 1, argv + argc);
 
+    // Extrai --flat (booleano) de qualquer posicao.
+    bool flat = false;
+    for (std::size_t i = 0; i < args.size(); ++i) {
+        if (args[i] == "--flat") {
+            flat = true;
+            args.erase(args.begin() + i);
+            break;
+        }
+    }
+
     // Extrai --vault <path> de qualquer posicao.
     std::string vault_override;
     for (std::size_t i = 0; i < args.size(); ++i) {
@@ -78,19 +90,26 @@ int main(int argc, char** argv) {
     const std::string arg1 = args.size() > 1 ? args[1] : "";
 
     try {
-        const std::string vault_root = detect_vault_root(vault_override);
-        VaultEngine engine(vault_root);
+        // Em modo flat, --vault aponta direto para a pasta de notas; sem ele,
+        // usa o diretorio atual (sem subir procurando notes/).
+        const std::string vault_root = flat
+            ? (vault_override.empty() ? fs::current_path().string() : vault_override)
+            : detect_vault_root(vault_override);
+        VaultEngine engine(vault_root, flat);
+        const std::string notes_loc = flat ? vault_root : vault_root + "/notes";
+        const std::string index_loc =
+            flat ? vault_root + "/.valen/index.json" : vault_root + "/index/index.json";
 
         if (command == "scan") {
             engine.scan();
             engine.resolve_links();
             std::cout << "Scan completo: " << engine.notes().size()
-                      << " nota(s) em " << vault_root << "/notes\n";
+                      << " nota(s) em " << notes_loc << "\n";
             engine.print_stats();
 
         } else if (command == "index") {
             engine.build_index();
-            std::cout << "Indice gerado: " << vault_root << "/index/index.json\n";
+            std::cout << "Indice gerado: " << index_loc << "\n";
             std::cout << "Notas indexadas: " << engine.notes().size() << "\n";
 
         } else if (command == "search") {
