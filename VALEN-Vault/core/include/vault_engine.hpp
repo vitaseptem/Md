@@ -18,7 +18,10 @@
 //   engine.build_index();   // gera index/index.json
 class VaultEngine {
 public:
-    explicit VaultEngine(const std::string& vault_root);
+    // flat = true: trata vault_root como a propria pasta de notas (sem subpasta
+    // "notes/") e grava o indice em vault_root/.valen/index.json. Util para
+    // indexar diretorios externos de .md (ex.: memoria do Claude Code).
+    explicit VaultEngine(const std::string& vault_root, bool flat = false);
 
     // --- Pipeline principal -------------------------------------------
     void scan();           // varre notes/ e preenche notes_ (frontmatter, links, word_count...)
@@ -49,6 +52,7 @@ public:
 
 private:
     std::string vault_root_;
+    bool flat_ = false;
     std::unordered_map<std::string, Note> notes_;
     nlohmann::json current_index_;
 

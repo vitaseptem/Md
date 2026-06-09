@@ -89,6 +89,20 @@ core/valen note "arquitetura"
 core/valen create "Nova Ideia"
 ```
 
+### Modo flat (`--flat`)
+
+Por padrão o vault tem a estrutura `vault/notes/` + `vault/index/`. Com `--flat`,
+o caminho passado em `--vault` é tratado como a **própria pasta de notas** (sem
+subpasta `notes/`) e o índice é gravado em `<vault>/.valen/index.json`. Útil para
+indexar diretórios externos de `.md` — por exemplo, a pasta de memória do
+Claude Code, que usa o mesmo formato (frontmatter + links `[[nota]]`).
+
+```bash
+valen index  --flat --vault ~/.claude/projects/<projeto>/memory
+valen stats  --flat --vault ~/.claude/projects/<projeto>/memory
+valen graph "alguma-memoria" --flat --vault ~/.claude/projects/<projeto>/memory
+```
+
 ---
 
 ## Formato das notas
