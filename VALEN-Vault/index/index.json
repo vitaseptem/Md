@@ -67,16 +67,139 @@
       }
     ],
     "nodes": [
+      "01_VALEN_Thinking_Matrix_Canvas",
+      "02_VALEN_Voice_Reactive_Orb_System_Ultra_Avancado_v2",
+      "INSTRUÇÃO OBRIGATÓRIA DE EXECUÇÃO",
+      "Instrução Inicial",
+      "README_Index",
+      "Universal_inicio",
+      "VALEN_Vault_Engine_v1_Master_Prompt",
+      "VALEN_v1_0_0_MASTER_PROMPT_v4_ULTRA_DETALHADO",
       "agents",
+      "análise_links_ia",
       "arquitetura",
+      "astraz_asset_bundler",
+      "astraz_code_packer",
+      "astraz_db_syncer",
+      "astraz_doc_compiler",
+      "astraz_lead_enricher",
+      "astraz_secure_vault",
+      "astraz_web_analyzer",
       "decisao-cpp",
+      "implementar_tools",
       "memory-system",
+      "moto_de_criacao_mult",
       "roadmap",
+      "tools_implementar_01",
+      "tools_implementar_02",
+      "valen-cli-master-prompt",
+      "valen_mythos_engine_prompt",
       "visual-layer"
     ]
   },
-  "last_scan": "2026-06-09T04:11:25+00:00",
+  "last_scan": "2026-06-09T14:32:23+00:00",
   "notes": {
+    "01_VALEN_Thinking_Matrix_Canvas": {
+      "backlinks": [],
+      "created": "",
+      "id": "01_VALEN_Thinking_Matrix_Canvas",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.1.0/01_VALEN_Thinking_Matrix_Canvas.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 1337
+    },
+    "02_VALEN_Voice_Reactive_Orb_System_Ultra_Avancado_v2": {
+      "backlinks": [],
+      "created": "",
+      "id": "02_VALEN_Voice_Reactive_Orb_System_Ultra_Avancado_v2",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.1.0/02_VALEN_Voice_Reactive_Orb_System_Ultra_Avancado_v2.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 489
+    },
+    "INSTRUÇÃO OBRIGATÓRIA DE EXECUÇÃO": {
+      "backlinks": [],
+      "created": "",
+      "id": "INSTRUÇÃO OBRIGATÓRIA DE EXECUÇÃO",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.0.0/INSTRUÇÃO OBRIGATÓRIA DE EXECUÇÃO.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 364
+    },
+    "Instrução Inicial": {
+      "backlinks": [],
+      "created": "",
+      "id": "Instrução Inicial",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.0.0/Instrução Inicial.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 147
+    },
+    "README_Index": {
+      "backlinks": [],
+      "created": "",
+      "id": "README_Index",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.1.0/README_Index.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 610
+    },
+    "Universal_inicio": {
+      "backlinks": [],
+      "created": "",
+      "id": "Universal_inicio",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/Universal_inicio.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 329
+    },
+    "VALEN_Vault_Engine_v1_Master_Prompt": {
+      "backlinks": [],
+      "created": "",
+      "id": "VALEN_Vault_Engine_v1_Master_Prompt",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [
+        "nota",
+        "outra-nota",
+        "nome-da-nota",
+        "links"
+      ],
+      "path": "notes/VALEN_Vault_Engine_v1_Master_Prompt.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 1195
+    },
+    "VALEN_v1_0_0_MASTER_PROMPT_v4_ULTRA_DETALHADO": {
+      "backlinks": [],
+      "created": "",
+      "id": "VALEN_v1_0_0_MASTER_PROMPT_v4_ULTRA_DETALHADO",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/1.0.0/VALEN_v1_0_0_MASTER_PROMPT_v4_ULTRA_DETALHADO.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 10878
+    },
     "agents": {
       "backlinks": [
         "arquitetura",
@@ -100,6 +223,18 @@
       ],
       "type": "agent",
       "word_count": 42
+    },
+    "análise_links_ia": {
+      "backlinks": [],
+      "created": "",
+      "id": "análise_links_ia",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/análise_links_ia.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 668
     },
     "arquitetura": {
       "backlinks": [
@@ -126,6 +261,90 @@
       "type": "architecture",
       "word_count": 54
     },
+    "astraz_asset_bundler": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_asset_bundler",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_asset_bundler.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 652
+    },
+    "astraz_code_packer": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_code_packer",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_code_packer.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 682
+    },
+    "astraz_db_syncer": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_db_syncer",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_db_syncer.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 646
+    },
+    "astraz_doc_compiler": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_doc_compiler",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_doc_compiler.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 685
+    },
+    "astraz_lead_enricher": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_lead_enricher",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_lead_enricher.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 705
+    },
+    "astraz_secure_vault": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_secure_vault",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_secure_vault.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 688
+    },
+    "astraz_web_analyzer": {
+      "backlinks": [],
+      "created": "",
+      "id": "astraz_web_analyzer",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/astraz_web_analyzer.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 693
+    },
     "decisao-cpp": {
       "backlinks": [
         "arquitetura"
@@ -146,6 +365,18 @@
       ],
       "type": "decision",
       "word_count": 43
+    },
+    "implementar_tools": {
+      "backlinks": [],
+      "created": "",
+      "id": "implementar_tools",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/implementar_tools.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 1506
     },
     "memory-system": {
       "backlinks": [
@@ -173,6 +404,18 @@
       "type": "concept",
       "word_count": 46
     },
+    "moto_de_criacao_mult": {
+      "backlinks": [],
+      "created": "",
+      "id": "moto_de_criacao_mult",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/moto_de_criacao_mult.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 1862
+    },
     "roadmap": {
       "backlinks": [
         "memory-system",
@@ -196,6 +439,54 @@
       "type": "log",
       "word_count": 75
     },
+    "tools_implementar_01": {
+      "backlinks": [],
+      "created": "",
+      "id": "tools_implementar_01",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/tools_implementar_01.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 2546
+    },
+    "tools_implementar_02": {
+      "backlinks": [],
+      "created": "",
+      "id": "tools_implementar_02",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/tools_implementar_02.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 2907
+    },
+    "valen-cli-master-prompt": {
+      "backlinks": [],
+      "created": "",
+      "id": "valen-cli-master-prompt",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/cli/valen-cli-master-prompt.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 873
+    },
+    "valen_mythos_engine_prompt": {
+      "backlinks": [],
+      "created": "",
+      "id": "valen_mythos_engine_prompt",
+      "last_modified": "2026-06-09T14:31:07+00:00",
+      "links": [],
+      "path": "notes/FUTUROS TOOLS/valen_mythos_engine_prompt.md",
+      "priority": "",
+      "tags": [],
+      "type": "",
+      "word_count": 1917
+    },
     "visual-layer": {
       "backlinks": [],
       "created": "2026-06-09",
@@ -217,6 +508,6 @@
       "word_count": 44
     }
   },
-  "total_notes": 6,
+  "total_notes": 28,
   "version": "1.0.0"
 }
