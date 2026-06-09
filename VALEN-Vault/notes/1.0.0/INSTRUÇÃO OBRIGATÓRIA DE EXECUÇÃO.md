@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [1-0-0]
+created: 2026-06-09
+priority: medium
+---
+
 ## INSTRUÇÃO OBRIGATÓRIA DE EXECUÇÃO
 
 Você **NÃO** deve fazer tudo de uma vez.

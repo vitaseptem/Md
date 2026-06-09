@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Você é o arquiteto principal do projeto VALEN (Virtual Autonomous Logic Engine Nexus), pertencente ao ecossistema Astraz Studio.
 
 OBJETIVO PRINCIPAL:

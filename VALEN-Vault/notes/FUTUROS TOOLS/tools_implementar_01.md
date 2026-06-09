@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Aqui tens os prompts de nível de engenharia para cada um dos novos motores da **Astraz Studio**. Eles foram estruturados com rigor técnico em C++20, foco em concorrência, otimização de memória e prontos para serem executados diretamente no **Claude Code** ou no terminal da tua VPS de 32 GB de RAM.
 ### 🎨 Prompt 1: astraz_bento_grid_generator (Gerador de Interfaces Geométricas)
 ```text

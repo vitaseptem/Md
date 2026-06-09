@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 # Prompt de Engenharia Ultra Detalhado para Implementação do VALEN Mythos Engine
 
 **Versão:** 1.0 - Nível Militar + Hacker Ético  

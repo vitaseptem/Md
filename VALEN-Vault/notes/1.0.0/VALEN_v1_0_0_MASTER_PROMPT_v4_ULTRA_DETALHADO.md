@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [1-0-0]
+created: 2026-06-09
+priority: medium
+---
+
 # VALEN v1.0.0 — PROMPT MESTRE ULTRA DETALHADO v4.0 (UNIFICADO)
 # AMBIENTE OFICIAL DE EXECUÇÃO — VALEN v1.0.0
 

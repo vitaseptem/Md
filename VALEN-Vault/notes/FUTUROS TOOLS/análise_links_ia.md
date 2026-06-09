@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Software Sênior especialista em C++20, Sistemas Linux de Alta Performance e Arquitetura de Agentes de IA. 
 
 Preciso criar um motor utilitário em C++ chamado `astraz-media-ingestor`. O objetivo deste motor é receber uma URL de vídeo (Instagram, TikTok ou YouTube), extrair seu conteúdo de forma assíncrona, transcrever o áudio localmente, capturar frames chave e empacotar tudo em um arquivo .ZIP estruturado com prompts em Markdown (.md). Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen.

@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [1-1-0]
+created: 2026-06-09
+priority: medium
+---
+
 # VALEN Thinking Matrix Canvas
 ## Master Prompt Ultra-Detalhado v3.0.0 — ASTREON Core
 

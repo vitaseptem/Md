@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Para levar a **Astraz Studio** e o **Valen** ao nível mais alto possível de automação de engenharia, podemos desenhar **Motores de Compilação e Empacotamento Automatizado (Build & Deployment Engines)** em C++.
 A ideia aqui é que você não precise abrir o VS Code, configurar SDKs ou compilar manualmente os projetos. O seu backend ou o Valen apenas envia os arquivos de código-fonte (HTML/JS/CSS, Flutter, C++, etc.) para esses motores nativos na sua VPS de 32 GB, e eles cospem o aplicativo final pronto e empacotado para o cliente.
 Aqui estão os prompts ultra detalhados para cada um desses motores de compilação:

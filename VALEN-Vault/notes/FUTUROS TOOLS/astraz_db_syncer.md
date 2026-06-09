@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Infraestrutura de Banco de Dados Sênior, especialista em C++20, Sistemas de Arquivos de Alta Performance e Otimização de I/O.
 
 Preciso criar um motor utilitário em C++ chamado `astraz-db-syncer`. O objetivo deste motor é se conectar a instâncias de bancos de dados (como PostgreSQL local ou Supabase via conexões nativas), extrair esquemas e dados de tabelas específicas de forma assíncrona, e compactar esses dados em tempo real utilizando o algoritmo `zstd` (Zstandard) diretamente na memória RAM antes de despejar o arquivo de backup (.sql.zst) no disco ou transmiti-lo para outro ambiente. Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen, para automação de DevOps e manutenção.

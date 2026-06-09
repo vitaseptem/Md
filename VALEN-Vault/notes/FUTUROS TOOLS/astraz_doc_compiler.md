@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Software Sênior especialista em Sistemas de Arquivos, Automação de Documentos Corporativos em C++20 e Arquitetura de Agentes de IA.
 
 Preciso criar um motor de renderização e compilação de documentos em C++ chamado `astraz-doc-compiler`. O objetivo principal deste motor é receber um payload JSON contendo variáveis de uma negociação (como dados do cliente, escopo dos serviços, cronograma, valores e condições de pagamento) e compilar esses dados nativamente em um documento PDF corporativo de altíssimo padrão visual (alinhado com a identidade futurista, minimalista e premium da Astraz Studio). Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen.

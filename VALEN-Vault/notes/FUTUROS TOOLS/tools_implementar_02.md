@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Aqui está o ecossistema de engenharia avançada para a **Astraz Studio**, expandindo o **Valen** com as linhagens de programação mais modernas e disruptivas do mercado (**Zig, Mojo, Elixir, Rust e Go**).
 Abaixo, você encontrará **3 prompts de nível de engenharia ultra detalhados para cada linguagem**, totalizando 15 novos motores industriais prontos para serem gerados pelo Claude Code diretamente na sua VPS de 32 GB de RAM.
 ### ⚡ LINHAGEM 1: ZIG (Performance Sem Comportamento Indefinido)

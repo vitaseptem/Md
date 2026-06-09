@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [1-0-0]
+created: 2026-06-09
+priority: medium
+---
+
 # Instrução Inicial - VALEN v1.0.0 Refatoração
 
 Vou te enviar 3 arquivos:

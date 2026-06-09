@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [1-1-0]
+created: 2026-06-09
+priority: medium
+---
+
 # VALEN Voice-Reactive Orb System — Ultra Avançado v2.0
 ## Master Prompt Máximo Detalhado para Claude Code
 

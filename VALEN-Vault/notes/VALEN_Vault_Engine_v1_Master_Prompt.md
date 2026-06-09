@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [geral]
+created: 2026-06-09
+priority: medium
+---
+
 # VALEN Vault Engine v1 — Master Prompt Ultra Detalhado para Claude Code
 
 **Versão:** 1.0  

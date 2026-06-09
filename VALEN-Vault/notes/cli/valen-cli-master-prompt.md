@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [cli]
+created: 2026-06-09
+priority: medium
+---
+
 # VALEN CLI - Master Prompt Ultra Detalhado v3.0
 
 **Objetivo:** Criar uma CLI profissional, robusta e instalável via pip para gerenciar o ciclo de vida do projeto VALEN no Ubuntu VPS.

@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Sistemas Sênior especialista em C++20, Arquitetura de Software e Otimização de Contexto para Modelos de Linguagem (LLMs).
 
 Preciso criar um motor utilitário em C++ chamado `astraz-code-packer`. O objetivo principal deste motor é ler recursivamente um diretório de código-fonte local na minha VPS, ignorar automaticamente pastas e ficheiros desnecessários (seguindo regras estilo `.gitignore`), construir uma representação visual em árvore da estrutura do projeto e concatenar o conteúdo de todos os ficheiros de código válidos em um único arquivo Markdown (.md) perfeitamente estruturado. Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen, permitindo-me dar contexto imediato de repositórios inteiros ao assistente.

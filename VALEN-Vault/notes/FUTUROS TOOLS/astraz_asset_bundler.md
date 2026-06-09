@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Software Sênior especialista em Processamento Gráfico, Sistemas de Arquivos em C++20 e Arquitetura de Agentes de IA.
 
 Preciso criar um motor utilitário de processamento de mídia em C++ chamado `astraz-asset-bundler`. O objetivo deste motor é receber o logotipo principal de um novo cliente da Astraz Studio (em formato de imagem de alta resolução como PNG ou um vetor SVG) e, diretamente na memória RAM, redimensionar, remover metadados, aplicar compressão moderna (WebP) e gerar automaticamente todo o pacote padrão de produção (Assets) exigido por desenvolvedores web e mobile, incluindo favicons em múltiplos tamanhos. Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen.

@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Sistemas Sênior, especialista em Concorrência em C++20, Protocolos de Rede e Engenharia de Dados orientada a Agentes de IA.
 
 Preciso criar um motor utilitário de altíssima performance em C++ chamado `astraz-lead-enricher`. O objetivo deste motor é receber uma lista de domínios/sites de empresas (enviada em massa por um arquivo ou string), efetuar uma varredura paralela em microssegundos para extrair e-mails corporativos, links de redes sociais, telefones e, crucialmente, executar uma validação profunda de SMTP (handshake de e-mail) para garantir que os leads são reais. Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen, para prospecção ativa da Astra Growth.

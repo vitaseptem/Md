@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Segurança de Informação e Especialista em C++20, Criptografia de Baixo Nível e Arquitetura de Agentes de IA.
 
 Preciso criar um micro-serviço e utilitário em C++ chamado `astraz-secure-vault`. O objetivo deste motor é atuar como um cofre de credenciais blindado e de ultra-alta performance para o backend do meu assistente de IA, o Valen. Ele deve armazenar, encriptar e decriptar chaves de API (OpenAI, Anthropic, Supabase) e senhas de clientes em disco utilizando o algoritmo AES-256-GCM (Authenticated Encryption), gerenciando o ciclo de vida dos segredos diretamente na memória RAM de forma segura (limpando buffers após o uso).

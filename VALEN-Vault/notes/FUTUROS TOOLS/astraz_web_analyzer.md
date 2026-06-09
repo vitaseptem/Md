@@ -1,3 +1,10 @@
+---
+type: concept
+tags: [futuros-tools]
+created: 2026-06-09
+priority: medium
+---
+
 Atue como um Engenheiro de Infraestrutura e Especialista em Redes Sênior em C++20 e Arquitetura de Agentes de IA.
 
 Preciso criar um motor utilitário de alta performance em C++ chamado `astraz-web-analyzer`. O objetivo deste motor é receber a URL do site de um cliente em potencial, executar uma varredura técnica profunda de infraestrutura, SEO e performance em microssegundos, e retornar um payload JSON estruturado. Este binário será integrado como uma ferramenta (Tool) oficial no backend do meu assistente de IA, o Valen, para que ele possa auditar sites instantaneamente durante reuniões ou prospecções da Astraz Studio.
