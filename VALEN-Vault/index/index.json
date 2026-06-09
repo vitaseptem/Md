@@ -1,0 +1,222 @@
+{
+  "graph": {
+    "edges": [
+      {
+        "from": "agents",
+        "to": "memory-system"
+      },
+      {
+        "from": "agents",
+        "to": "arquitetura"
+      },
+      {
+        "from": "arquitetura",
+        "to": "memory-system"
+      },
+      {
+        "from": "arquitetura",
+        "to": "agents"
+      },
+      {
+        "from": "arquitetura",
+        "to": "decisao-cpp"
+      },
+      {
+        "from": "decisao-cpp",
+        "to": "memory-system"
+      },
+      {
+        "from": "decisao-cpp",
+        "to": "arquitetura"
+      },
+      {
+        "from": "memory-system",
+        "to": "arquitetura"
+      },
+      {
+        "from": "memory-system",
+        "to": "agents"
+      },
+      {
+        "from": "memory-system",
+        "to": "roadmap"
+      },
+      {
+        "from": "roadmap",
+        "to": "memory-system"
+      },
+      {
+        "from": "roadmap",
+        "to": "arquitetura"
+      },
+      {
+        "from": "roadmap",
+        "to": "agents"
+      },
+      {
+        "from": "visual-layer",
+        "to": "memory-system"
+      },
+      {
+        "from": "visual-layer",
+        "to": "roadmap"
+      },
+      {
+        "from": "visual-layer",
+        "to": "agents"
+      }
+    ],
+    "nodes": [
+      "agents",
+      "arquitetura",
+      "decisao-cpp",
+      "memory-system",
+      "roadmap",
+      "visual-layer"
+    ]
+  },
+  "last_scan": "2026-06-09T04:11:25+00:00",
+  "notes": {
+    "agents": {
+      "backlinks": [
+        "arquitetura",
+        "memory-system",
+        "roadmap",
+        "visual-layer"
+      ],
+      "created": "2026-06-09",
+      "id": "agents",
+      "last_modified": "2026-06-09T04:09:49+00:00",
+      "links": [
+        "memory-system",
+        "arquitetura"
+      ],
+      "path": "notes/agents.md",
+      "priority": "medium",
+      "tags": [
+        "agents",
+        "automation",
+        "valen"
+      ],
+      "type": "agent",
+      "word_count": 42
+    },
+    "arquitetura": {
+      "backlinks": [
+        "agents",
+        "decisao-cpp",
+        "memory-system",
+        "roadmap"
+      ],
+      "created": "2026-06-08",
+      "id": "arquitetura",
+      "last_modified": "2026-06-09T04:09:38+00:00",
+      "links": [
+        "memory-system",
+        "agents",
+        "decisao-cpp"
+      ],
+      "path": "notes/arquitetura.md",
+      "priority": "high",
+      "tags": [
+        "core",
+        "memory",
+        "valen"
+      ],
+      "type": "architecture",
+      "word_count": 54
+    },
+    "decisao-cpp": {
+      "backlinks": [
+        "arquitetura"
+      ],
+      "created": "2026-06-09",
+      "id": "decisao-cpp",
+      "last_modified": "2026-06-09T04:09:53+00:00",
+      "links": [
+        "memory-system",
+        "arquitetura"
+      ],
+      "path": "notes/decisao-cpp.md",
+      "priority": "high",
+      "tags": [
+        "core",
+        "cpp",
+        "performance"
+      ],
+      "type": "decision",
+      "word_count": 43
+    },
+    "memory-system": {
+      "backlinks": [
+        "agents",
+        "arquitetura",
+        "decisao-cpp",
+        "roadmap",
+        "visual-layer"
+      ],
+      "created": "2026-06-08",
+      "id": "memory-system",
+      "last_modified": "2026-06-09T04:09:43+00:00",
+      "links": [
+        "arquitetura",
+        "agents",
+        "roadmap"
+      ],
+      "path": "notes/memory-system.md",
+      "priority": "high",
+      "tags": [
+        "core",
+        "memory",
+        "graph"
+      ],
+      "type": "concept",
+      "word_count": 46
+    },
+    "roadmap": {
+      "backlinks": [
+        "memory-system",
+        "visual-layer"
+      ],
+      "created": "2026-06-09",
+      "id": "roadmap",
+      "last_modified": "2026-06-09T04:10:00+00:00",
+      "links": [
+        "memory-system",
+        "arquitetura",
+        "agents"
+      ],
+      "path": "notes/roadmap.md",
+      "priority": "medium",
+      "tags": [
+        "planning",
+        "roadmap",
+        "valen"
+      ],
+      "type": "log",
+      "word_count": 75
+    },
+    "visual-layer": {
+      "backlinks": [],
+      "created": "2026-06-09",
+      "id": "visual-layer",
+      "last_modified": "2026-06-09T04:10:05+00:00",
+      "links": [
+        "memory-system",
+        "roadmap",
+        "agents"
+      ],
+      "path": "notes/visual-layer.md",
+      "priority": "low",
+      "tags": [
+        "ui",
+        "orbs",
+        "valen"
+      ],
+      "type": "visual",
+      "word_count": 44
+    }
+  },
+  "total_notes": 6,
+  "version": "1.0.0"
+}

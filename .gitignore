@@ -1,0 +1,11 @@
+# Build artifacts
+VALEN-Vault/core/build/
+VALEN-Vault/core/valen
+*.o
+*.obj
+
+# Claude Code local config
+.claude/
+
+# OS
+.DS_Store
