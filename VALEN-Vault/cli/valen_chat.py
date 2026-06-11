@@ -101,7 +101,10 @@ def salvar_config(cfg: dict) -> None:
 
 
 def base_url(cfg: dict) -> str:
-    return f"http://{cfg['server_ip']}:{cfg.get('server_port', PORTA_PADRAO)}"
+    """Porta 443 -> https (domínio com TLS); demais portas -> http."""
+    porta = cfg.get("server_port", PORTA_PADRAO)
+    esquema = "https" if str(porta) == "443" else "http"
+    return f"{esquema}://{cfg['server_ip']}:{porta}"
 
 
 def headers(cfg: dict) -> dict:
