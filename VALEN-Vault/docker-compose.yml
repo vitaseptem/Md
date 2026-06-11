@@ -2,16 +2,19 @@
 #  VALEN — docker-compose (roda na CONTABO)
 # =====================================================================
 #  Sobe o ecossistema completo do cérebro:
-#    - ollama : serve o Llama 3 70B (modelos persistidos em volume)
+#    - ollama : serve o conselho de modelos (persistidos em volume),
+#               incluindo o llama3.3-meta-puro (Llama 3.3 70B Instruct
+#               com pesos oficiais da Meta, quantizado q4_K_M)
 #    - brain  : API FastAPI do Valen (skills + orquestração)
 #
 #  USO:
 #    cp .env.example .env       # edite credenciais do Admin + JWT!
 #    docker compose up -d --build
-#    # 1ª vez: baixe o conselho de modelos (o 70B pesa ~40GB)
+#    # 1ª vez: baixe os conselheiros leves
 #    docker compose exec ollama ollama pull llama3:8b
 #    docker compose exec ollama ollama pull qwen2.5-coder:7b
-#    docker compose exec ollama ollama pull llama3:70b
+#    # Especialista Supremo (pesos puros da Meta via Hugging Face):
+#    bash deploy/contabo_meta_llama33.sh
 #
 #  SEGURANÇA (política Astraz): em produção, NÃO exponha 8777 direto —
 #  feche no firewall e publique só via Nginx/Traefik com TLS (80/443),
@@ -20,7 +23,7 @@
 
 services:
   # ---------------------------------------------------------------
-  # OLLAMA — motor do Llama 3 70B
+  # OLLAMA — motor do conselho (Especialista Supremo: llama3.3-meta-puro)
   # ---------------------------------------------------------------
   ollama:
     image: ollama/ollama:latest
@@ -28,13 +31,16 @@ services:
     restart: unless-stopped
     volumes:
       - ollama_models:/root/.ollama        # modelos persistem entre restarts
+      # Pesos oficiais da Meta baixados do Hugging Face (SSD do host).
+      # Usado pelo `ollama create llama3.3-meta-puro -f /models/Modelfile`.
+      - ${HOME}/models:/models:ro
     networks:
       - valen-net                          # rede interna: só o brain enxerga
     # SEM "ports:" — Ollama nunca fica exposto à internet, só na rede interna
     deploy:
       resources:
         limits:
-          memory: 48g                      # Llama 3 70B quantizado precisa ~40GB RAM
+          memory: 56g                      # 70B q4_K_M ≈ 43GB + KV cache (num_ctx 8192)
     logging:
       driver: json-file
       options:
@@ -62,7 +68,7 @@ services:
       VALEN_MODELO_ROTEADOR: ${VALEN_MODELO_ROTEADOR:-llama3:8b}
       VALEN_MODELO_FRONTEND: ${VALEN_MODELO_FRONTEND:-qwen2.5-coder:7b}
       VALEN_MODELO_RAPIDO: ${VALEN_MODELO_RAPIDO:-llama3:8b}
-      VALEN_MODELO_SUPREMO: ${VALEN_MODELO_SUPREMO:-llama3:70b}
+      VALEN_MODELO_SUPREMO: ${VALEN_MODELO_SUPREMO:-llama3.3-meta-puro}
       VALEN_SKILLS_DIR: /app/skills
     volumes:
       - ./skills:/app/skills:ro            # skills da pasta do Vault, hot-reload, somente leitura

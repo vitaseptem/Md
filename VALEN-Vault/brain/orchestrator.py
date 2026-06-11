@@ -14,8 +14,10 @@
    [2] ESPECIALISTA escolhido:
         • frontend : Qwen 2.5 Coder — telas, Kotlin/Compose, layouts
         • rapido   : Llama 3 8B — comandos de terminal, logs, conversa
-        • supremo  : Llama 3 70B — só desperta (sobe do SSD p/ RAM)
-                     para arquiteturas complexas e sistemas do zero
+        • supremo  : llama3.3-meta-puro (Llama 3.3 70B Instruct, pesos
+                     oficiais da Meta, quantizado q4_K_M) — só desperta
+                     (sobe do SSD p/ RAM) para arquiteturas complexas
+                     e sistemas do zero
         │
         ▼
    [3] SKILL mais relevante (hot-reload da pasta skills/) é injetada
@@ -258,8 +260,11 @@ async def perguntar_ao_valen(mensagem: str, contexto: str | None = None) -> dict
     system_prompt = montar_system_prompt(skill, skills, especialista)
     user_prompt = mensagem if not contexto else f"[CONTEXTO DA MÁQUINA]\n{contexto}\n\n[PEDIDO]\n{mensagem}"
 
-    # 4. Chamada ao especialista (o 70B só sobe à RAM se for o escolhido —
-    #    o próprio Ollama carrega/descarrega modelos sob demanda)
+    # 4. Chamada ao especialista (o llama3.3-meta-puro de 70B só sobe à RAM
+    #    se for o escolhido — o Ollama carrega/descarrega sob demanda).
+    #    O contrato devolve `modelo_utilizado` com o ID real usado, então a
+    #    CLI da Oracle e o app Kotlin veem "llama3.3-meta-puro" quando o
+    #    modelo de alta fidelidade da Meta é ativado.
     bruto = await _chamar_ollama(modelo, system_prompt, user_prompt, timeout=OLLAMA_TIMEOUT)
 
     # 5. Validação e normalização do contrato de saída

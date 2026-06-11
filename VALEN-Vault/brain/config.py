@@ -52,11 +52,14 @@ MODELO_FRONTEND = os.getenv("VALEN_MODELO_FRONTEND", "qwen2.5-coder:7b")
 # Especialista em comandos rápidos/scripts/conversas casuais
 MODELO_RAPIDO = os.getenv("VALEN_MODELO_RAPIDO", "llama3:8b")
 
-# Especialista Supremo: só desperta para tarefas massivas
-MODELO_SUPREMO = os.getenv("VALEN_MODELO_SUPREMO", "llama3:70b")
+# Especialista Supremo: só desperta para tarefas massivas.
+# "llama3.3-meta-puro" = Llama 3.3 70B Instruct com pesos oficiais da Meta,
+# baixado do Hugging Face e registrado no Ollama via
+# deploy/contabo_meta_llama33.sh (quantizado q4_K_M para caber na RAM).
+MODELO_SUPREMO = os.getenv("VALEN_MODELO_SUPREMO", "llama3.3-meta-puro")
 
 # Tempo máximo (segundos) de espera pela resposta do especialista.
-# Llama 3 70B em CPU pode demorar — seja generoso.
+# Llama 3.3 70B em CPU pode demorar — seja generoso.
 OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", "600"))
 
 # Roteamento não pode segurar a fila: timeout curto e fallback heurístico
