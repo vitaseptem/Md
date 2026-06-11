@@ -1,0 +1,89 @@
+# =====================================================================
+#  VALEN — docker-compose (roda na CONTABO)
+# =====================================================================
+#  Sobe o ecossistema completo do cérebro:
+#    - ollama : serve o Llama 3 70B (modelos persistidos em volume)
+#    - brain  : API FastAPI do Valen (skills + orquestração)
+#
+#  USO:
+#    cp .env.example .env       # edite credenciais do Admin + JWT!
+#    docker compose up -d --build
+#    # 1ª vez: baixe o conselho de modelos (o 70B pesa ~40GB)
+#    docker compose exec ollama ollama pull llama3:8b
+#    docker compose exec ollama ollama pull qwen2.5-coder:7b
+#    docker compose exec ollama ollama pull llama3:70b
+#
+#  SEGURANÇA (política Astraz): em produção, NÃO exponha 8777 direto —
+#  feche no firewall e publique só via Nginx/Traefik com TLS (80/443),
+#  ou restrinja o acesso ao IP da VPS Oracle.
+# =====================================================================
+
+services:
+  # ---------------------------------------------------------------
+  # OLLAMA — motor do Llama 3 70B
+  # ---------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: valen-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_models:/root/.ollama        # modelos persistem entre restarts
+    networks:
+      - valen-net                          # rede interna: só o brain enxerga
+    # SEM "ports:" — Ollama nunca fica exposto à internet, só na rede interna
+    deploy:
+      resources:
+        limits:
+          memory: 48g                      # Llama 3 70B quantizado precisa ~40GB RAM
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"                    # rotação de logs (não enche o disco)
+        max-file: "3"
+    # Se a Contabo tiver GPU NVIDIA, descomente:
+    # gpus: all
+
+  # ---------------------------------------------------------------
+  # BRAIN — API FastAPI do Valen
+  # ---------------------------------------------------------------
+  brain:
+    build: ./brain
+    container_name: valen-brain
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    environment:
+      VALEN_ADMIN_USER: ${VALEN_ADMIN_USER:?Defina VALEN_ADMIN_USER no arquivo .env}
+      VALEN_ADMIN_PASSWORD_HASH: ${VALEN_ADMIN_PASSWORD_HASH:?Gere com gerar_hash.py e defina no .env}
+      VALEN_JWT_SECRET: ${VALEN_JWT_SECRET:?Gere com 'openssl rand -hex 32' e defina no .env}
+      VALEN_JWT_EXPIRE_DAYS: ${VALEN_JWT_EXPIRE_DAYS:-30}
+      OLLAMA_URL: http://ollama:11434      # resolve pelo nome do serviço na rede interna
+      # Conselho de modelos (Banca de Conselheiros)
+      VALEN_MODELO_ROTEADOR: ${VALEN_MODELO_ROTEADOR:-llama3:8b}
+      VALEN_MODELO_FRONTEND: ${VALEN_MODELO_FRONTEND:-qwen2.5-coder:7b}
+      VALEN_MODELO_RAPIDO: ${VALEN_MODELO_RAPIDO:-llama3:8b}
+      VALEN_MODELO_SUPREMO: ${VALEN_MODELO_SUPREMO:-llama3:70b}
+      VALEN_SKILLS_DIR: /app/skills
+    volumes:
+      - ./skills:/app/skills:ro            # skills da pasta do Vault, hot-reload, somente leitura
+    ports:
+      - "8777:8777"                        # acesso da CLI Oracle (restrinja no firewall!)
+    networks:
+      - valen-net
+    deploy:
+      resources:
+        limits:
+          memory: 512m                     # API é leve; o peso fica no Ollama
+          cpus: "1.0"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  valen-net:
+    driver: bridge
+
+volumes:
+  ollama_models:

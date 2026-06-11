@@ -4,6 +4,20 @@ VALEN-Vault/core/valen
 *.o
 *.obj
 
+# Python
+__pycache__/
+*.pyc
+
+# Segredos — NUNCA commitar o .env real (só o .env.example)
+.env
+
+# Android (Gradle/IDE)
+VALEN-Vault/android/.gradle/
+VALEN-Vault/android/build/
+VALEN-Vault/android/app/build/
+VALEN-Vault/android/local.properties
+VALEN-Vault/android/.idea/
+
 # Claude Code local config
 .claude/
 

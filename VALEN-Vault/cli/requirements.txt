@@ -1,0 +1,3 @@
+# VALEN CLI — dependências da interface de terminal (Oracle)
+requests>=2.32
+rich>=13.7
