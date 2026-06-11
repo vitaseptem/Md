@@ -31,6 +31,20 @@ data class ChatResponse(
     @SerializedName("conteudo") val conteudo: String,
     @SerializedName("arquivo") val arquivo: String?,
     @SerializedName("explicacao") val explicacao: String?,
+    // Presente quando comando/codigo aguarda o modal — id da ação na mini-api
+    @SerializedName("acao_id") val acaoId: String? = null,
+)
+
+// ---------- /api/valen/v1/confirmar (mini-api Oracle) ----------
+data class ConfirmarRequest(
+    @SerializedName("acao_id") val acaoId: String,
+    @SerializedName("decisao") val decisao: String,        // "y" confirma | "n" cancela
+)
+
+data class ExecucaoResponse(
+    @SerializedName("executado") val executado: Boolean,
+    @SerializedName("saida") val saida: String,            // stdout+stderr ou caminho do arquivo
+    @SerializedName("codigo_retorno") val codigoRetorno: Int,
 )
 
 // ---------- Estado da conversa na UI ----------

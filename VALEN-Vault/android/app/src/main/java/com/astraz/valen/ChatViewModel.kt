@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.astraz.valen.data.ChatRequest
 import com.astraz.valen.data.ChatResponse
+import com.astraz.valen.data.ConfirmarRequest
 import com.astraz.valen.data.LoginRequest
 import com.astraz.valen.data.MensagemChat
 import com.astraz.valen.data.TokenStore
@@ -95,25 +96,61 @@ class ChatViewModel(private val store: TokenStore) : ViewModel() {
         enviarAoBrain(msg)
     }
 
-    /** Botão CONFIRMAR EXECUÇÃO do modal: envia 'y' nos bastidores. */
-    fun confirmarAcao() {
-        acaoPendente = null
-        enviarAoBrain("y")
-    }
+    /**
+     * Botão CONFIRMAR EXECUÇÃO do modal: envia 'y' à mini-api da Oracle,
+     * que executa o comando/grava o arquivo NA VPS e devolve a saída.
+     */
+    fun confirmarAcao() = resolverAcao("y")
 
-    /** Botão CANCELAR do modal: envia 'n' nos bastidores. */
-    fun cancelarAcao() {
-        val acao = acaoPendente
+    /** Botão CANCELAR do modal: envia 'n' — a mini-api descarta a ação. */
+    fun cancelarAcao() = resolverAcao("n")
+
+    private fun resolverAcao(decisao: String) {
+        val acao = acaoPendente ?: return
         acaoPendente = null
-        mensagens.add(
-            MensagemChat(
-                deUsuario = false,
-                texto = "⛔ Ação cancelada pelo usuário.\n\n```\n${acao?.conteudo.orEmpty()}\n```",
-                skill = acao?.skillUtilizada,
-                modelo = acao?.modeloUtilizado,
+        val id = acao.acaoId
+        if (id == null) {
+            // Sem id (resposta antiga/brain direto): nada a executar remotamente
+            mensagens.add(
+                MensagemChat(
+                    deUsuario = false,
+                    texto = "⚠ Ação sem id de execução — nada foi enviado.\n\n```\n${acao.conteudo}\n```",
+                    skill = acao.skillUtilizada,
+                    modelo = acao.modeloUtilizado,
+                )
             )
-        )
-        enviarAoBrain("n")
+            return
+        }
+        val apiAtual = api ?: run { erro = "Sessão inválida — faça login."; return }
+        viewModelScope.launch {
+            carregando = true
+            erro = null
+            try {
+                val res = apiAtual.confirmar(bearer(), ConfirmarRequest(id, decisao))
+                val texto = if (!res.executado) {
+                    "⛔ Ação cancelada.\n\n```\n${acao.conteudo}\n```"
+                } else {
+                    val status = if (res.codigoRetorno == 0) "✔ concluído (rc=0)"
+                                 else "✗ saiu com rc=${res.codigoRetorno}"
+                    "⚡ Executado na VPS — $status\n\n```\n${res.saida}\n```"
+                }
+                mensagens.add(
+                    MensagemChat(
+                        deUsuario = false,
+                        texto = texto,
+                        skill = acao.skillUtilizada,
+                        modelo = acao.modeloUtilizado,
+                    )
+                )
+            } catch (e: HttpException) {
+                erro = if (e.code() == 401) { logout(); "Sessão expirada — faça login novamente." }
+                       else "Erro ao resolver ação (HTTP ${e.code()})."
+            } catch (e: Exception) {
+                erro = "Falha de rede: ${e.message}"
+            } finally {
+                carregando = false
+            }
+        }
     }
 
     private fun enviarAoBrain(mensagem: String) {

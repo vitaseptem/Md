@@ -27,6 +27,14 @@ interface ValenApi {
         @Body req: ChatRequest,
     ): ChatResponse
 
+    // Resolve a ação pendente na mini-api da Oracle:
+    // 'y' executa o comando/grava o arquivo NA VPS e devolve a saída.
+    @POST("api/valen/v1/confirmar")
+    suspend fun confirmar(
+        @Header("Authorization") bearer: String,
+        @Body req: ConfirmarRequest,
+    ): ExecucaoResponse
+
     companion object {
         /**
          * Cria o cliente apontando para o servidor (IP ou domínio).

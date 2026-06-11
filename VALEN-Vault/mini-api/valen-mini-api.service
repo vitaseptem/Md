@@ -1,0 +1,27 @@
+# =====================================================================
+#  VALEN MINI-API — unidade systemd (VPS Oracle)
+#  Instalar:
+#    sudo cp valen-mini-api.service /etc/systemd/system/
+#    sudo systemctl daemon-reload
+#    sudo systemctl enable --now valen-mini-api
+# =====================================================================
+[Unit]
+Description=VALEN Mini-API (gateway do app Android -> Brain)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/VALEN_Vault_Engine/VALEN-Vault/mini-api
+# BRAIN_URL: hoje o container local; quando a Contabo subir, troque aqui
+Environment=BRAIN_URL=http://127.0.0.1:8777
+Environment=MINI_PORT=8788
+Environment=VALEN_WORKDIR=/home/ubuntu
+# Segredo JWT: carregado do .env do Vault (mesmo do Brain)
+EnvironmentFile=/home/ubuntu/VALEN_Vault_Engine/VALEN-Vault/.env
+ExecStart=/usr/bin/python3 mini_api.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

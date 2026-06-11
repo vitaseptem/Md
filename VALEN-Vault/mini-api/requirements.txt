@@ -1,0 +1,6 @@
+# VALEN Mini-API — gateway do app na VPS Oracle
+fastapi>=0.111
+uvicorn[standard]>=0.30
+httpx>=0.27
+pydantic>=2.7
+PyJWT>=2.8
